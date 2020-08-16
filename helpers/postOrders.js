@@ -10,7 +10,7 @@ const postOrders = async (PURCHASE_ORDERS) => {
     const data = PURCHASE_ORDERS;
 
     data.forEach(async (order) => {
-      const req = await axios.post(`${process.env.BASE_URL_POST}`, order);
+      const doPost = await axios.post(`${process.env.BASE_URL_POST}`, order);
     });
   } catch (error) {
     console.log(error);

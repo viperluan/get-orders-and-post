@@ -7,11 +7,11 @@ dotenv.config();
 
 const getOrders = async (PURCHASE_ORDERS, finalDate, initialDate) => {
   try {
-    const res = await axios.get(
+    const response = await axios.get(
       `${process.env.BASE_URL_GET}?data_final=${finalDate}&data_inicial=${initialDate}`
     );
 
-    const data = res.data;
+    const data = response.data;
 
     const dataMap = ordersModel(data);
 

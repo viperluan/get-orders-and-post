@@ -25,7 +25,7 @@ const newOrderModel = (purchaseOrders) => {
         complemento,
         logradouro: rua,
         numero: endereco.numero,
-        pais: pais || 'Brasil',
+        pais,
         uf,
       },
       numero,
