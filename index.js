@@ -34,19 +34,14 @@ const incrementRequests = () => {
 };
 
 const start = async () => {
+  incrementRequests();
   await getOrders(PURCHASE_ORDERS, finalDate, initialDate);
   await postOrders(PURCHASE_ORDERS);
 };
 
 start();
 
-intervalOfRequests(
-  timeInMinutes,
-  PURCHASE_ORDERS,
-  incrementRequests,
-  clearPurchaseArray,
-  start
-);
+intervalOfRequests(timeInMinutes, PURCHASE_ORDERS, clearPurchaseArray, start);
 
 const APP_PORT = process.env.PORT || 3001;
 app.listen(APP_PORT, () => {

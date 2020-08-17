@@ -1,17 +1,10 @@
-const intervalOfRequests = (
-  timeInMinutes,
-  orders,
-  incrementRequests,
-  clear,
-  start
-) => {
-  const time = timeInMinutes * 60000;
+const intervalOfRequests = (timeInMinutes, PURCHASE_ORDERS, clear, start) => {
+  const timeInMilliseconds = timeInMinutes * 60000;
 
   return setInterval(() => {
-    incrementRequests();
-    clear(orders);
+    clear(PURCHASE_ORDERS);
     start();
-  }, time);
+  }, timeInMilliseconds);
 };
 
 module.exports = intervalOfRequests;

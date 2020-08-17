@@ -1,6 +1,6 @@
-const clearPurchaseArray = (orders) => {
-  while (orders.length > 0) {
-    orders.pop();
+const clearPurchaseArray = (PURCHASE_ORDERS) => {
+  while (PURCHASE_ORDERS.length > 0) {
+    PURCHASE_ORDERS.pop();
   }
 };
 
