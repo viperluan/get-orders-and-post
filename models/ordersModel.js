@@ -39,7 +39,7 @@ const newOrderModel = (purchaseOrders) => {
       }),
       valorDesconto: valorDesconto,
       valorFrete: valorFrete,
-      valorTotal: totalValue + valorFrete - valorDesconto,
+      valorTotal: +(totalValue + valorFrete - valorDesconto).toFixed(2),
     };
   });
 
