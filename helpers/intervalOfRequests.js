@@ -1,8 +1,10 @@
-const intervalOfRequests = (timeInMinutes, PURCHASE_ORDERS, clear, start) => {
+const clearPurchaseArray = require('./clearPurchases');
+
+const intervalOfRequests = (timeInMinutes, PURCHASE_ORDERS, start) => {
   const timeInMilliseconds = timeInMinutes * 60000;
 
   return setInterval(() => {
-    clear(PURCHASE_ORDERS);
+    clearPurchaseArray(PURCHASE_ORDERS);
     start();
   }, timeInMilliseconds);
 };

@@ -1,6 +1,5 @@
 const axios = require('axios').default;
 const dotenv = require('dotenv');
-const ordersModel = require('../models/ordersModel');
 
 // Inicia leitura do arquivo .env
 dotenv.config();

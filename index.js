@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 
 const getOrders = require('./helpers/getOrders');
 const postOrders = require('./helpers/postOrders');
-const clearPurchaseArray = require('./helpers/clearPurchases');
 const intervalOfRequests = require('./helpers/intervalOfRequests');
 
 // Inicia a leitura do arquivo .env
@@ -33,15 +32,19 @@ const incrementRequests = () => {
   numberOfRequests++;
 };
 
-const start = async () => {
+const startService = async () => {
   incrementRequests();
   await getOrders(PURCHASE_ORDERS, finalDate, initialDate);
+  if (PURCHASE_ORDERS.length < 1) {
+    startService();
+    return;
+  }
   await postOrders(PURCHASE_ORDERS);
 };
 
-start();
+startService();
 
-intervalOfRequests(timeInMinutes, PURCHASE_ORDERS, clearPurchaseArray, start);
+intervalOfRequests(timeInMinutes, PURCHASE_ORDERS, startService);
 
 const APP_PORT = process.env.PORT || 3001;
 app.listen(APP_PORT, () => {
