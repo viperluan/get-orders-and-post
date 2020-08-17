@@ -23,6 +23,6 @@ POST: como explicado anteriormente, os dados já foram tratados no momento da pr
 - 403 = Forbidden
 - 404 = Not Found
 
-#### LINK HEROKU
+## Link Heroku
 
-[Heroku APP](https://purchase-orders-web-service.herokuapp.com/)
+[Heroku API](https://purchase-orders-web-service.herokuapp.com/)
