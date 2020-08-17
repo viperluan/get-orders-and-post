@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const getOrders = require('./helpers/getOrders');
 const postOrders = require('./helpers/postOrders');
@@ -8,6 +9,8 @@ const intervalOfRequests = require('./helpers/intervalOfRequests');
 
 // Inicia a leitura do arquivo .env
 dotenv.config();
+
+app.use(cors(process.env.BASE_URL_CORS));
 
 const finalDate = '2020-08-16T00%3A00';
 const initialDate = '2020-08-15T00%3A00';
@@ -20,7 +23,7 @@ let numberOfRequests = 0;
 app.get('/', (_, res) => {
   try {
     res.send({
-      message: `Número de requisições dessa sessão: ${numberOfRequests}`,
+      requests: numberOfRequests,
       orders: PURCHASE_ORDERS,
     });
   } catch (error) {
